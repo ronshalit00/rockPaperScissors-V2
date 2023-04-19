@@ -1,3 +1,9 @@
+// Initiate global counts
+let winsCount = 0;
+let tiesCount = 0;
+let loseCount = 0;
+let result = "";
+
 // Element selectors
 const buttons = document.querySelectorAll(".button");
 const roundResult = document.querySelector("#round-result");
@@ -6,33 +12,32 @@ const winsText = document.querySelector("#wins-count");
 const tiesText = document.querySelector("#ties-count");
 const lossText = document.querySelector("#loss-count");
 
-// The click event
-const clickEvent = (e) => {
-	roundResult.textContent = `${playRound(
-		`${e.target.id}`,
-		getComputerChoice()
-	)}`;
-	if (result === "win") {
-		winsText.textContent = winsCount;
-	} else if (result === "tie") {
-		tiesText.textContent = tiesCount;
-	} else {
-		lossText.textContent = loseCount;
-	}
-	roundResult.classList.remove("hidden");
-
-	if (winsCount == 5) {
-		alert("You won the game!");
-		window.location.reload();
-	} else if (loseCount == 5) {
-		alert("You lose!");
-		window.location.reload();
-	}
-};
-
-// Event listener for clicking the buttons, initiate the click event
+// Event listener for clicking the buttons
 buttons.forEach((button) => {
-	button.addEventListener("click", clickEvent);
+	button.addEventListener("click", (event) => {
+		// Play a round and display the result
+		roundResult.textContent = `${playRound(
+			`${button.id}`,
+			getComputerChoice()
+		)}`;
+		roundResult.classList.remove("hidden");
+		// show win/tie/lose count
+		if (result === "win") {
+			winsText.textContent = winsCount;
+		} else if (result === "tie") {
+			tiesText.textContent = tiesCount;
+		} else {
+			lossText.textContent = loseCount;
+		}
+		// End the game if more than 5 wins/losses
+		if (winsCount == 5) {
+			alert("You won the game!");
+			window.location.reload();
+		} else if (loseCount == 5) {
+			alert("You lose!");
+			window.location.reload();
+		}
+	});
 });
 
 // Get a random computer choice
@@ -42,12 +47,6 @@ function getComputerChoice() {
 	console.table;
 	return choicesArr[choice];
 }
-
-// Initiate counts
-let winsCount = 0;
-let tiesCount = 0;
-let loseCount = 0;
-let result = "";
 
 // Play a round
 function playRound(playerSelection, computerSelection) {
