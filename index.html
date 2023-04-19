@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<!-- favicon -->
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="favicon/apple-touch-icon.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="favicon/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="favicon/favicon-16x16.png"
+		/>
+		<link rel="manifest" href="favicon/site.webmanifest" />
+		<!-- Import font awesome for the icons -->
+		<script
+			src="https://kit.fontawesome.com/b6af966895.js"
+			crossorigin="anonymous"
+		></script>
+		<title>Rock Paper Scissors</title>
+	</head>
+	<body>
+		<main>
+			<div id="btn-container">
+				<div class="button" id="rock">
+					<i class="fa-regular fa-hand-back-fist"></i> Rock
+				</div>
+				<div class="button" id="paper">
+					<i class="fa-regular fa-hand"></i> Paper
+				</div>
+				<div class="button" id="scissors">
+					<i class="fa-regular fa-hand-scissors"></i> Scissors
+				</div>
+			</div>
+			<div id="round-result" class="hidden">"</div>
+			<div id="game-results">
+				<p>Wins: <span id="wins-count">0</span></p>
+				<p>Ties: <span id="ties-count">0</span></p>
+				<p>Losses: <span id="loss-count">0</span></p>
+			</div>
+		</main>
+		<footer>
+			<p>
+				Developed by <a href="https://github.com/ronshalit00">Ron Shalit</a>, a
+				project by <a href="https://www.theodinproject.com/">TheOdinProject</a>.
+			</p>
+		</footer>
+		<script src="app.js"></script>
+	</body>
+</html>
